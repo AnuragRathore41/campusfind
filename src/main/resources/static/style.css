@@ -1,0 +1,63 @@
+* { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; background: #f4f6fb; color: #1f2937; }
+.hidden { display: none !important; }
+.muted { color: #6b7280; font-size: 14px; }
+.center { text-align: center; }
+.error { color: #b91c1c; font-size: 14px; min-height: 18px; margin: 4px 0 0; }
+
+input, select, textarea { width: 100%; padding: 10px 12px; margin-bottom: 10px; border: 1px solid #d1d5db; border-radius: 8px; font-size: 14px; font-family: inherit; background: #fff; }
+textarea { min-height: 70px; resize: vertical; }
+
+.btn { padding: 9px 14px; border: 1px solid #d1d5db; background: #fff; border-radius: 8px; cursor: pointer; font-size: 14px; }
+.btn:hover { background: #f3f4f6; }
+.btn.primary { background: #4f46e5; color: #fff; border-color: #4f46e5; }
+.btn.primary:hover { background: #4338ca; }
+.btn.danger { color: #b91c1c; border-color: #fca5a5; }
+.btn.small { padding: 6px 10px; font-size: 13px; }
+
+/* Login page */
+.auth { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 16px; }
+.auth-card { background: #fff; padding: 28px; border-radius: 14px; width: 100%; max-width: 380px; box-shadow: 0 8px 30px rgba(0,0,0,.08); }
+.auth-card h1 { margin: 0 0 6px; }
+.tabs { display: flex; gap: 8px; margin: 16px 0; }
+.tab { flex: 1; padding: 9px; border: 1px solid #d1d5db; background: #fff; border-radius: 8px; cursor: pointer; }
+.tab.active { background: #eef2ff; border-color: #4f46e5; color: #4338ca; font-weight: 600; }
+.auth-card .btn { width: 100%; }
+
+/* Top bar */
+.topbar { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; padding: 12px 20px; background: #fff; box-shadow: 0 1px 4px rgba(0,0,0,.08); position: sticky; top: 0; z-index: 5; }
+.brand { font-weight: 700; font-size: 18px; }
+.user { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-size: 14px; }
+
+.container { max-width: 1100px; margin: 20px auto; padding: 0 16px; }
+.filters { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 8px; margin-bottom: 18px; align-items: start; }
+.filters input, .filters select { margin-bottom: 0; }
+
+/* Cards */
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
+.card { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,.06); display: flex; flex-direction: column; }
+.card img, .noimg { width: 100%; height: 170px; object-fit: cover; background: #e5e7eb; }
+.noimg { display: flex; align-items: center; justify-content: center; color: #9ca3af; font-size: 14px; }
+.card-body { padding: 12px 14px; flex: 1; }
+.card-body h3 { margin: 6px 0; font-size: 17px; }
+.card-body p { margin: 4px 0; font-size: 14px; }
+.card-actions { padding: 10px 14px 14px; display: flex; gap: 6px; flex-wrap: wrap; }
+
+.badge { display: inline-block; padding: 2px 9px; border-radius: 999px; font-size: 12px; font-weight: 600; margin-right: 4px; }
+.badge.lost { background: #fee2e2; color: #b91c1c; }
+.badge.found { background: #dcfce7; color: #166534; }
+.badge.open, .badge.pending { background: #e0e7ff; color: #3730a3; }
+.badge.claimed { background: #fef3c7; color: #92400e; }
+.badge.resolved, .badge.approved { background: #d1fae5; color: #065f46; }
+.badge.rejected { background: #f3f4f6; color: #4b5563; }
+
+/* Popups */
+.modal { position: fixed; inset: 0; background: rgba(0,0,0,.45); display: flex; align-items: center; justify-content: center; padding: 16px; z-index: 20; }
+.modal-box { background: #fff; border-radius: 14px; padding: 22px; width: 100%; max-width: 460px; max-height: 90vh; overflow-y: auto; }
+.modal-box h2 { margin-top: 0; }
+.row { display: flex; gap: 8px; justify-content: flex-end; margin-top: 10px; }
+.claim { border: 1px solid #e5e7eb; border-radius: 10px; padding: 10px 12px; margin-bottom: 10px; }
+.claim p { margin: 6px 0; font-size: 14px; }
+
+.toast { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: #111827; color: #fff; padding: 10px 18px; border-radius: 8px; z-index: 50; font-size: 14px; }
+.toast.err { background: #b91c1c; }

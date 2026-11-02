@@ -36,6 +36,7 @@ public class SecurityConfig {
                         .requestMatchers("/api/auth/**").permitAll()
                         .requestMatchers("/error").permitAll()
                         .requestMatchers(HttpMethod.GET, "/uploads/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/", "/index.html", "/style.css", "/app.js", "/favicon.ico").permitAll()
                         .requestMatchers(HttpMethod.DELETE, "/api/items/**").hasRole("ADMIN")
                         .anyRequest().authenticated()
                 )

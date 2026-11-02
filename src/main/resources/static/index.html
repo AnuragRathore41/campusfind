@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CampusFind – Lost &amp; Found</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div id="toast" class="toast hidden"></div>
+
+<!-- Login / Register -->
+<section id="authView" class="auth">
+    <div class="auth-card">
+        <h1>🔎 CampusFind</h1>
+        <p class="muted">Lost something on campus? Found something? Start here.</p>
+
+        <div class="tabs">
+            <button type="button" id="tabLogin" class="tab active">Login</button>
+            <button type="button" id="tabRegister" class="tab">Register</button>
+        </div>
+
+        <form id="authForm">
+            <input id="name" type="text" placeholder="Full name" class="hidden">
+            <input id="email" type="email" placeholder="Email" required>
+            <input id="password" type="password" placeholder="Password (min 6 characters)" required>
+            <button type="submit" id="authSubmit" class="btn primary">Login</button>
+            <p id="authError" class="error"></p>
+        </form>
+    </div>
+</section>
+
+<!-- Main app -->
+<section id="appView" class="hidden">
+    <header class="topbar">
+        <div class="brand">🔎 CampusFind</div>
+        <div class="user">
+            <span id="userInfo"></span>
+            <button type="button" id="btnReport" class="btn primary">+ Report Item</button>
+            <button type="button" id="btnLogout" class="btn">Logout</button>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="filters">
+            <input id="fKeyword" placeholder="Search (e.g. wallet)">
+            <input id="fCategory" placeholder="Category">
+            <input id="fLocation" placeholder="Location">
+            <select id="fType">
+                <option value="">All types</option>
+                <option value="LOST">Lost</option>
+                <option value="FOUND">Found</option>
+            </select>
+            <select id="fStatus">
+                <option value="">All status</option>
+                <option value="OPEN">Open</option>
+                <option value="CLAIMED">Claimed</option>
+                <option value="RESOLVED">Resolved</option>
+            </select>
+            <button type="button" id="btnSearch" class="btn primary">Search</button>
+            <button type="button" id="btnClear" class="btn">Clear</button>
+        </div>
+
+        <div id="itemsGrid" class="grid"></div>
+        <p id="emptyMsg" class="muted center hidden">No items found.</p>
+    </main>
+</section>
+
+<!-- Report item popup -->
+<div id="reportModal" class="modal hidden">
+    <div class="modal-box">
+        <h2>Report an item</h2>
+        <form id="reportForm">
+            <input id="rTitle" placeholder="Title (e.g. Black Wallet)" required maxlength="100">
+            <textarea id="rDescription" placeholder="Description" maxlength="255"></textarea>
+            <select id="rType">
+                <option value="LOST">I lost this</option>
+                <option value="FOUND">I found this</option>
+            </select>
+            <input id="rCategory" placeholder="Category (e.g. Wallet, Electronics)" required>
+            <input id="rLocation" placeholder="Location (e.g. Library)" required>
+            <label class="muted">Photo (optional, JPG / PNG / WEBP, max 5 MB)</label>
+            <input id="rPhoto" type="file" accept="image/jpeg,image/png,image/webp">
+            <p id="reportError" class="error"></p>
+            <div class="row">
+                <button type="button" id="btnCancelReport" class="btn">Cancel</button>
+                <button type="submit" class="btn primary">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Claims popup -->
+<div id="claimsModal" class="modal hidden">
+    <div class="modal-box">
+        <h2>Claims on this item</h2>
+        <div id="claimsList"></div>
+        <div class="row">
+            <button type="button" id="btnCloseClaims" class="btn">Close</button>
+        </div>
+    </div>
+</div>
+
+<input id="photoInput" type="file" accept="image/jpeg,image/png,image/webp" class="hidden">
+
+<script src="/app.js"></script>
+</body>
+</html>
